@@ -1,0 +1,53 @@
+<h1>All meetups</h1>
+<?php
+$flashMessenger = $this->flashMessenger();
+if ($flashMessenger->hasMessages()) {
+    ?>
+    <div class="alert alert-danger">
+        <strong>Error!</strong> <?= $flashMessenger->getMessages()[0] ?>
+    </div>
+    <?php
+}
+?>
+<div class="form-group">
+    <div class="table-responsive">
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Date Start</th>
+                <th>Date End</th>
+                <th>Action</th>
+            </tr>
+            <?php foreach ($this->meetups as $meetup): ?>
+                <tr>
+                    <td>
+                        <strong><?= $meetup->getTitle() ?></strong>
+                    </td>
+                    <td>
+                        <?= date_format($meetup->getStartDate(), 'd-m-Y') ?>
+                    </td>
+                    <td>
+                        <?= date_format($meetup->getEndDate(), 'd-m-Y') ?>
+                    </td>
+                    <td>
+                        <div>
+                            <a href="<?= $this->url('meetup/view'); ?><?= $meetup->getId() ?>" class="btn btn-default">View</a>
+                            <a href="<?= $this->url('meetup/edit'); ?><?= $meetup->getId() ?>" class="btn btn-default">Edit</a>
+                            <a href="<?= $this->url('meetup/delete'); ?><?= $meetup->getId() ?>" class="btn btn-danger">Delete</a>
+                        </div>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+            <?php if (sizeof($this->meetups) <= 0): ?>
+                <td>
+                    <p>No meetup.</p>
+                </td>
+                <td></td>
+            <?php endif ?>
+        </table>
+    </div>
+    <br>
+    <a href="<?= $this->url('meetup/add'); ?>" class="btn btn-primary">Add new meetup</a>
+</div>
+
+

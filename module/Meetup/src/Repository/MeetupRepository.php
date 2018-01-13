@@ -41,14 +41,14 @@ final class MeetupRepository extends EntityRepository
                 Join::WITH,
                 'm.idMeetup = o.id'
             )
-        ->where('m.id = :id')
-        ->setParameter('id', $id);
+            ->where('m.id = :id')
+            ->setParameter('id', $id);
 
         return $meetup->getQuery()->getResult();
 
     }
 
-    public function createMeetup(string $title, string $description = '', \DateTime $startdate, \DateTime $enddate)
+    public function createMeetup(string $title, string $description, \DateTime $startdate, \DateTime $enddate)
     {
         return new Meetup($title, $description, $startdate, $enddate);
     }

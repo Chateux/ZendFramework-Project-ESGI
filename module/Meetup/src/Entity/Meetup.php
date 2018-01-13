@@ -42,7 +42,7 @@ class Meetup
      */
     private $enddate;
 
-    public function __construct(string $title, string $description = '', \DateTime $startdate, \DateTime $enddate)
+    public function __construct(string $title, string $description, \DateTime $startdate, \DateTime $enddate)
     {
         $this->id = Uuid::uuid4()->toString();
         $this->idMeetup = new ArrayCollection();

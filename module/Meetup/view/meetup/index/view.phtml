@@ -10,15 +10,15 @@
         <span><strong><?= date_format($meetup->getEndDate(), 'd-m-Y') ?></strong></span></p>
 
     <div class="alert alert-info">
-       This meetup is organized by  <strong>
+        This meetup is organized by <strong>
             <?php
-            if($this->organisator != null):
+            if ($this->organisator != null):
                 echo $organisator->getLastName() . " " . $organisator->getFirstName();
             else:
                 echo "no one";
             endif;
             ?>
-            </strong>
+        </strong>
     </div>
 
 </div>

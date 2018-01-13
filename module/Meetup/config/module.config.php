@@ -21,10 +21,10 @@ return [
             'meetup' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/meetup',
+                    'route' => '/meetup',
                     'defaults' => [
                         'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
+                        'action' => 'index',
                     ],
                 ],
                 'may_terminate' => true,
@@ -32,45 +32,45 @@ return [
                     'add' => [
                         'type' => Literal::class,
                         'options' => [
-                            'route'    => '/new',
+                            'route' => '/new',
                             'defaults' => [
-                                'action'     => 'add',
+                                'action' => 'add',
                             ],
                         ],
                     ],
                     'edit' => [
                         'type' => Segment::class,
                         'options' => [
-                            'route'    => '/edit/[:id]',
+                            'route' => '/edit/[:id]',
                             'constraints' => [
                                 'id' => '[a-zA-Z0-9_-]*',
                             ],
                             'defaults' => [
-                                'action'     => 'edit',
+                                'action' => 'edit',
                             ],
                         ],
                     ],
                     'view' => [
                         'type' => Segment::class,
                         'options' => [
-                            'route'    => '/view/[:id]',
+                            'route' => '/view/[:id]',
                             'constraints' => [
                                 'id' => '[a-zA-Z0-9_-]*',
                             ],
                             'defaults' => [
-                                'action'     => 'view',
+                                'action' => 'view',
                             ],
                         ],
                     ],
                     'delete' => [
                         'type' => Segment::class,
                         'options' => [
-                            'route'    => '/delete/[:id]',
+                            'route' => '/delete/[:id]',
                             'constraints' => [
                                 'id' => '[a-zA-Z0-9_-]*',
                             ],
                             'defaults' => [
-                                'action'     => 'delete',
+                                'action' => 'delete',
 
                             ],
                         ],
@@ -96,18 +96,18 @@ return [
     ],
     'view_manager' => [
         'display_not_found_reason' => true,
-        'display_exceptions'       => true,
-        'doctype'                  => 'HTML5',
-        'not_found_template'       => 'error/404',
-        'exception_template'       => 'error/index',
+        'display_exceptions' => true,
+        'doctype' => 'HTML5',
+        'not_found_template' => 'error/404',
+        'exception_template' => 'error/index',
         'template_map' => [
-            'layout/layout'           => __DIR__ . '/../view/layout/layout.phtml',
-            'meetup/index/index'      => __DIR__ . '/../view/meetup/index/index.phtml',
-            'meetup/index/add'        => __DIR__ . '/../view/meetup/index/add.phtml',
-            'meetup/index/edit'       => __DIR__ . '/../view/meetup/index/edit.phtml',
-            'meetup/index/view'       => __DIR__ . '/../view/meetup/index/view.phtml',
-            'error/404'               => __DIR__ . '/../view/error/404.phtml',
-            'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'layout/layout' => __DIR__ . '/../view/layout/layout.phtml',
+            'meetup/index/index' => __DIR__ . '/../view/meetup/index/index.phtml',
+            'meetup/index/add' => __DIR__ . '/../view/meetup/index/add.phtml',
+            'meetup/index/edit' => __DIR__ . '/../view/meetup/index/edit.phtml',
+            'meetup/index/view' => __DIR__ . '/../view/meetup/index/view.phtml',
+            'error/404' => __DIR__ . '/../view/error/404.phtml',
+            'error/index' => __DIR__ . '/../view/error/index.phtml',
         ],
     ],
     'doctrine' => [

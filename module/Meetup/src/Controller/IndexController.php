@@ -78,14 +78,14 @@ final class IndexController extends AbstractActionController
     {
         $id = $this->params('id');
         $meetup = $this->meetupRepository->get($id);
-
-        if (!isset($meetup)) {
+        if (!isset($meetup[0])) {
             $this->flashMessenger()->addMessage('This meetup does not exist.');
             return $this->redirect()->toRoute('meetup');
         }
 
         return new ViewModel([
-            'meetup' => $meetup
+            'meetup' => $meetup[0],
+            'organisator' => $meetup[1]
         ]);
     }
 

@@ -1,12 +1,26 @@
 <div class="form-group">
 
     <h1><?= $meetup->getTitle() ?></h1>
+
     <p><u>Description of the meetup :</u><br><br>
         <?= nl2br($meetup->getDescription()) ?></p>
     <br>
     <br>
     <p>From <span><strong><?= date_format($meetup->getStartDate(), 'd-m-Y') ?></strong></span> to
         <span><strong><?= date_format($meetup->getEndDate(), 'd-m-Y') ?></strong></span></p>
+
+    <div class="alert alert-info">
+       This meetup is organized by  <strong>
+            <?php
+            if($this->organisator != null):
+                echo $organisator->getLastName() . " " . $organisator->getFirstName();
+            else:
+                echo "no one";
+            endif;
+            ?>
+            </strong>
+    </div>
+
 </div>
 
 

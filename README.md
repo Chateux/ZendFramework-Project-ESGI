@@ -28,3 +28,12 @@ and to finish
 ```
 php vendor/bin/doctrine-module orm:schema-tool:update --force
 ```
+
+
+## How to launch
+
+You can launch the server thanks to this command :
+
+```
+composer serve
+```

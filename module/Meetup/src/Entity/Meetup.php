@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Meetup\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Ramsey\Uuid\Uuid;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -45,7 +46,6 @@ class Meetup
     public function __construct(string $title, string $description, \DateTime $startdate, \DateTime $enddate)
     {
         $this->id = Uuid::uuid4()->toString();
-        $this->idMeetup = new ArrayCollection();
         $this->title = $title;
         $this->description = $description;
         $this->startdate = $startdate;

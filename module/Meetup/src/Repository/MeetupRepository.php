@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace Meetup\Repository;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\Query\Expr\Join;
 use Meetup\Entity\Meetup;
@@ -32,6 +33,14 @@ final class MeetupRepository extends EntityRepository
     public function get($id)
     {
 
+        $meetup = $this->getEntityManager()->getRepository(Meetup::class)->find($id);
+        return $meetup;
+
+    }
+
+    public function getByEntity($id)
+    {
+
         $meetup = $this->getEntityManager()->createQueryBuilder();
         $meetup->select('m', 'o')
             ->from(Meetup::class, 'm')
@@ -48,7 +57,7 @@ final class MeetupRepository extends EntityRepository
 
     }
 
-    public function createMeetup(string $title, string $description, \DateTime $startdate, \DateTime $enddate)
+    public function createMeetup(string $title,string $description, \DateTime $startdate, \DateTime $enddate)
     {
         return new Meetup($title, $description, $startdate, $enddate);
     }

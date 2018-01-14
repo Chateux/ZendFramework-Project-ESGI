@@ -77,7 +77,7 @@ final class IndexController extends AbstractActionController
     public function ViewAction()
     {
         $id = $this->params('id');
-        $meetup = $this->meetupRepository->get($id);
+        $meetup = $this->meetupRepository->getByEntity($id);
         if (!isset($meetup[0])) {
             $this->flashMessenger()->addMessage('This meetup does not exist.');
             return $this->redirect()->toRoute('meetup');
@@ -107,8 +107,10 @@ final class IndexController extends AbstractActionController
         ];
         $form->setData($data);
         if ($request->isPost()) {
+
             $form->setData($request->getPost());
             if ($form->isValid()) {
+
                 $title = $form->getData()['title'];
                 $description = $form->getData()['description'];
                 $startdate = new \DateTime($form->getData()['startdate']);
@@ -119,6 +121,7 @@ final class IndexController extends AbstractActionController
                     $meetup->setStartDate($startdate);
                     $meetup->setEndDate($enddate);
                     $this->meetupRepository->edit($meetup);
+
                     return $this->redirect()->toRoute('meetup');
                 } else {
                     $this->flashMessenger()->addMessage('The end date is less than the start date.');

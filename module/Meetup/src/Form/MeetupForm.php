@@ -91,10 +91,8 @@ class MeetupForm extends Form implements InputFilterProviderInterface
             'title' => [
                 'validators' => [
                     [
-                        [
-                            'name' => StringLength::class,
-                            'name' => StringTrim::class
-                        ],
+
+                        'name' => StringLength::class,
                         'required' => true,
                         'options' => [
                             'min' => 5,
@@ -106,10 +104,9 @@ class MeetupForm extends Form implements InputFilterProviderInterface
             'description' => [
                 'validators' => [
                     [
-                        [
-                            'name' => StringLength::class,
-                            'name' => StringTrim::class
-                        ],
+
+                        'name' => StringLength::class,
+
                         'required' => true,
                         'options' => [
                             'min' => 5,
@@ -132,12 +129,6 @@ class MeetupForm extends Form implements InputFilterProviderInterface
                         'name' => Validator\DateValidator::class,
                         'required' => true
                     ],
-                ],
-            ],
-            [
-                'csrf' => [
-                    'type' => Csrf::class,
-                    'name' => 'csrf',
                 ],
             ],
         ];

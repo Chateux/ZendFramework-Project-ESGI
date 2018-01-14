@@ -17,7 +17,7 @@ You must use first
 git clone https://github.com/Chateux/ZendFramework-Project-ESGI.git
 ```
 
-and you launch 
+then
 
 ```
 composer install
